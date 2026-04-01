@@ -10,7 +10,7 @@ import Contact from './pages/Contact'
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-zinc-950 text-white">
+      <div className="min-h-screen" style={{ background: '#d4d0c8', color: '#000000' }}>
         <ScrollToTop />                    {/* ← Add here */}
         <Header />
         <Routes>

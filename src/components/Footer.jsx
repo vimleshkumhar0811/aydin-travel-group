@@ -1,37 +1,140 @@
 export default function Footer() {
+  const now = new Date()
+  const timeStr = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })
+  const dateStr = now.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })
+
   return (
-    <footer className="bg-zinc-900 border-t border-zinc-800 py-16">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+    <>
+      {/* Status bar before taskbar */}
+      <div style={{
+        background: '#d4d0c8',
+        borderTop: '2px solid',
+        borderColor: '#808080 #ffffff #ffffff #808080',
+        padding: '4px 16px',
+        fontSize: 11,
+        fontFamily: 'Tahoma, Arial, sans-serif',
+        display: 'flex',
+        gap: 24,
+        flexWrap: 'wrap'
+      }}>
         <div>
-          <div className="flex items-center gap-3 mb-6">
-            {/* <div className="w-9 h-9 bg-gradient-to-br from-blue-600 to-emerald-500 rounded-xl flex items-center justify-center text-white font-bold">FRE</div> */}
-            <h3 className="text-2xl font-semibold">Market Edge</h3>
-          </div>
-          <p className="text-zinc-400 max-w-xs">
-            Independent financial research and analysis for European markets.
-          </p>
+          <strong>Market Edge Research</strong> — Operated by Market Edge
         </div>
-
-        <div>
-          <h4 className="font-semibold mb-4">Quick Links</h4>
-          <div className="space-y-3 text-sm text-zinc-400">
-            <a href="/" className="block hover:text-white">Home</a>
-            <a href="/about" className="block hover:text-white">About Us</a>
-            <a href="/services" className="block hover:text-white">Our Services</a>
-            <a href="/contact" className="block hover:text-white">Contact</a>
-          </div>
+        <div style={{ borderLeft: '2px solid', borderColor: '#808080 #ffffff #ffffff #808080', paddingLeft: 16 }}>
+          Registration No: <strong>40203704395</strong>
         </div>
-
-        <div>
-          <h4 className="font-semibold mb-4">Legal Entity</h4>
-          <div className="text-sm text-zinc-400 space-y-1">
-            <p>Operated by Market Edge</p>
-            <p>Registration No: 40203704395</p>
-            <p>Bebru iela 22-40, Jēkabpils, LV-5201, Latvia</p>
-            <p className="pt-4 text-[10px]">© 2026 Market Edgea. All rights reserved.</p>
-          </div>
+        <div style={{ borderLeft: '2px solid', borderColor: '#808080 #ffffff #ffffff #808080', paddingLeft: 16 }}>
+          Bebru iela 22-40, Jēkabpils, LV-5201, Latvia
+        </div>
+        <div style={{ marginLeft: 'auto', color: '#444' }}>
+          © 2026 Market Edge. All rights reserved.
         </div>
       </div>
-    </footer>
+
+      {/* Windows XP-style Taskbar */}
+      <div style={{
+        background: 'linear-gradient(to bottom, #2467c6 0%, #1353a8 45%, #1353a8 50%, #1a5dc4 100%)',
+        borderTop: '2px solid #5b9bd5',
+        padding: '3px 4px',
+        display: 'flex',
+        alignItems: 'center',
+        gap: 4,
+        minHeight: 34,
+        fontFamily: 'Tahoma, Arial, sans-serif',
+        position: 'sticky',
+        bottom: 0,
+        zIndex: 100,
+      }}>
+        {/* Start button */}
+        <button style={{
+          background: 'linear-gradient(to bottom, #57a03b, #3a8028)',
+          border: '1px solid #1a5c10',
+          borderRadius: '0 12px 12px 0',
+          color: '#ffffff',
+          fontWeight: 'bold',
+          fontSize: 13,
+          padding: '3px 12px 3px 8px',
+          cursor: 'pointer',
+          fontFamily: 'Tahoma, Arial, sans-serif',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 6,
+          letterSpacing: 0.5,
+          textShadow: '1px 1px 1px rgba(0,0,0,0.5)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.3)',
+        }}>
+          <span style={{ fontSize: 16 }}>⊞</span> start
+        </button>
+
+        {/* Separator */}
+        <div style={{ width: 1, background: '#1353a8', height: 24, borderLeft: '1px solid #0a246a', borderRight: '1px solid #2a63c6', margin: '0 4px' }} />
+
+        {/* Quick launch icons */}
+        {[
+          { icon: '🌐', label: 'Internet Explorer' },
+          { icon: '📧', label: 'Outlook' },
+          { icon: '📊', label: 'Market Brief' },
+        ].map((item, i) => (
+          <button key={i} title={item.label} style={{
+            background: 'transparent',
+            border: '1px solid transparent',
+            padding: '2px 4px',
+            cursor: 'pointer',
+            fontSize: 16,
+            display: 'flex',
+            alignItems: 'center',
+            borderRadius: 2,
+          }}
+            onMouseEnter={e => { e.currentTarget.style.border = '1px solid #5b9bd5'; e.currentTarget.style.background = 'rgba(255,255,255,0.15)'; }}
+            onMouseLeave={e => { e.currentTarget.style.border = '1px solid transparent'; e.currentTarget.style.background = 'transparent'; }}
+          >{item.icon}</button>
+        ))}
+
+        {/* Separator */}
+        <div style={{ width: 1, background: '#1353a8', height: 24, borderLeft: '1px solid #0a246a', borderRight: '1px solid #2a63c6', margin: '0 4px' }} />
+
+        {/* Active window button */}
+        <div style={{
+          background: 'linear-gradient(to bottom, #1660a7, #0e4a87)',
+          border: '1px solid #0a246a',
+          borderRadius: 2,
+          padding: '3px 10px',
+          fontSize: 11,
+          color: '#ffffff',
+          fontFamily: 'Tahoma, Arial, sans-serif',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 6,
+          minWidth: 160,
+          cursor: 'pointer',
+        }}>
+          <span>🌍</span>
+          <span>Market Edge — Financial Research</span>
+        </div>
+
+        {/* Spacer */}
+        <div style={{ flex: 1 }} />
+
+        {/* System tray */}
+        <div style={{
+          background: 'linear-gradient(to bottom, #1660a7, #0e4a87)',
+          border: '1px inset #0a246a',
+          borderRadius: 2,
+          padding: '3px 8px',
+          fontSize: 11,
+          color: '#ffffff',
+          fontFamily: 'Tahoma, Arial, sans-serif',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 8,
+        }}>
+          <span title="Network Connected">🔒</span>
+          <span title="Volume">🔊</span>
+          <span style={{ borderLeft: '1px solid #2a63c6', paddingLeft: 8, fontSize: 10 }}>
+            {timeStr}<br />{dateStr}
+          </span>
+        </div>
+      </div>
+    </>
   )
 }
