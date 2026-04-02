@@ -50,7 +50,7 @@ export default function Services() {
             <h3 className="text-3xl font-semibold mb-4 group-hover:text-amber-400 transition-colors">
               {s.title}
             </h3>
-            <p className="text-amber-400 text-2xl mb-6 font-medium">{s.price}</p>
+            {/* <p className="text-amber-400 text-2xl mb-6 font-medium">{s.price}</p> */}
             <p className="text-zinc-400 leading-relaxed">{s.desc}</p>
           </div>
         ))}

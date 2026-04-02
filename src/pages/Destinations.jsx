@@ -96,7 +96,7 @@ export default function Destinations() {
                 <h3 className="text-2xl font-semibold tracking-tight">{dest.name}</h3>
               </div>
               
-              <p className="text-amber-400 font-medium mb-4">{dest.price}</p>
+              {/* <p className="text-amber-400 font-medium mb-4">{dest.price}</p> */}
               
               <p className="text-zinc-400 mb-6 line-clamp-3">
                 {dest.desc}
